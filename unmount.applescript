@@ -1,19 +1,9 @@
--- Change this value
---property discName : "Porthos"
---set volumeNames to {"Porthos", "Aramis"}
-set volumeNames to {"Porthos"}
+-- Change these values to match your drive names
+set volumeNames to {"Porthos", "Aramis"}
 
-
-repeat with volumeName in volumeNames
-	set toDrop to {volumeName & ":"}
-	
-	unmountVolume(toDrop)
-end repeat
-
-on unmountVolume(dropped_item_ref)
-	
+repeat with dropped_item_ref in volumeNames	
 	set volumeName to dropped_item_ref as text
-	set volumeName to text 1 thru -2 of volumeName
+	--set volumeName to text 1 thru -2 of volumeName
 	
 	-- comment out next line when tired of it.   
 	display dialog return & dropped_item_ref & return & volumeName & return & "123" giving up after 5
@@ -36,4 +26,4 @@ on unmountVolume(dropped_item_ref)
 	
 	display dialog "Hopefully, we ejected " & dropped_item_ref giving up after 5
 	
-end unmountVolume
+end repeat
