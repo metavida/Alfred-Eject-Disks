@@ -1,6 +1,11 @@
 -- Change these values to match your drive names
 set volumeNames to {"Porthos", "Aramis"}
 
+(* Icon Creative Commons http://creativecommons.org/licenses/by-nc-nd/3.0/
+          by BlueMalboro http://bluemalboro.deviantart.com/art/Micro-Icon-Set-42295693
+                     via http://www.mricons.com/icon/120951/128/eject-media-icon
+*)
+
 -- Should we display confirmation dialogs?
 set showConfirmations to false
 
