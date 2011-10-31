@@ -1,14 +1,16 @@
 -- Change these values to match your drive names
 set volumeNames to {"Porthos", "Aramis"}
 
-repeat with dropped_item_ref in volumeNames	
+-- Should we display confirmation dialogs?
+set showConfirmations to false
+
+repeat with dropped_item_ref in volumeNames
 	set volumeName to dropped_item_ref as text
-	--set volumeName to text 1 thru -2 of volumeName
 	
-	-- comment out next line when tired of it.   
-	display dialog return & dropped_item_ref & return & volumeName & return & "123" giving up after 5
-	
-	display dialog "Ejecting  " & dropped_item_ref & "  May take awhile. " giving up after 5
+	if showConfirmations then
+		--display dialog return & dropped_item_ref & return & volumeName & return & "123" giving up after 5
+		display dialog "Ejecting  " & dropped_item_ref & "  May take awhile. " giving up after 5
+	end if
 	
 	try
 		(* alternative unmount  
@@ -24,6 +26,8 @@ repeat with dropped_item_ref in volumeNames
 		log "error occurred " & what
 	end try
 	
-	display dialog "Hopefully, we ejected " & dropped_item_ref giving up after 5
+	if showConfirmations then
+		display dialog "Hopefully, we ejected " & dropped_item_ref giving up after 5
+	end if
 	
 end repeat
